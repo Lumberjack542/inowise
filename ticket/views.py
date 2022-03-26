@@ -9,14 +9,23 @@ from .models import Ticket
 from .serializers import *
 
 
-class TicketView(APIView):
-    def get(self, request):
-        ticket = Ticket.objects.all()
-        serializer = TicketSerializer(ticket, many=True)
-        return Response({"ticket": serializer.data})
+# class TicketMainView(APIView):
+#     def get(self, request):
+#         ticket = Ticket.objects.all()
+#         serializer = TicketSerializer(ticket, many=True)
+#         return Response({"ticket": serializer.data})
 
 
-class TicketAddView(generics.CreateAPIView):
+class TicketView(generics.ListCreateAPIView):
+    queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
 
 
+class TicketUpdate(generics.UpdateAPIView):
+    queryset = Ticket.objects.all()
+    serializer_class = TicketSerializer
+
+
+class TicketDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Ticket.objects.all()
+    serializer_class = TicketSerializer

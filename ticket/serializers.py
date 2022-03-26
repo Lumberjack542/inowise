@@ -6,14 +6,11 @@ from .models import *
 class TicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
-        fields = (
+        fields = '__all__'
 
-            'title',
-            'description',
-            'completed',
-            'frozen',
-            'unresolved'
-        )
+    # def create(self, validated_data):
+    #     return Ticket.objects.create(**validated_data)
+    #
+    # def update(self, instance, validated_data):
+    #     instance.title = validated_data.get('title', instance.title)
 
-    def create(self, validated_data):
-        return Ticket.objects.create(**validated_data)

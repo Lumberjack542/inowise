@@ -9,11 +9,11 @@ from .models import Ticket
 from .serializers import *
 
 
-# class TicketMainView(APIView):
-#     def get(self, request):
-#         ticket = Ticket.objects.all()
-#         serializer = TicketSerializer(ticket, many=True)
-#         return Response({"ticket": serializer.data})
+class TicketMainView(APIView):
+    def get(self, request):
+        ticket = Ticket.objects.all()
+        serializer = TicketSerializer(ticket, many=True)
+        return Response({"ticket": serializer.data})
 
 
 class TicketView(generics.ListCreateAPIView):

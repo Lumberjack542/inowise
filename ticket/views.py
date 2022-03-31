@@ -15,8 +15,6 @@ from .permissions import IsAdminOrReadOnly
 from .serializers import *
 
 
-
-
 class TicketViewAdmin(mixins.CreateModelMixin,
                    mixins.RetrieveModelMixin,
                    mixins.UpdateModelMixin,

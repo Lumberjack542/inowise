@@ -14,7 +14,7 @@ from .models import Ticket
 from .permissions import IsAdminOrReadOnly
 from .serializers import *
 
-# класс для работы админа (должен быть авторизован через токен и сессии )
+
 
 
 class TicketViewAdmin(mixins.CreateModelMixin,
@@ -33,7 +33,7 @@ class TicketForUser(generics.ListCreateAPIView):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
     permission_classes = (IsAuthenticated,)
-    authentication_classes = (TokenAuthentication,)
+
 
 # class TicketViewAll(APIView):
 #     def get(self, request):
